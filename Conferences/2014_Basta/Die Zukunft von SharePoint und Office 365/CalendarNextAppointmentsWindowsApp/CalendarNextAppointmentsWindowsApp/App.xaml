@@ -1,0 +1,12 @@
+﻿<Application
+    x:Class="CalendarNextAppointmentsWindowsApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CalendarNextAppointmentsWindowsApp">
+    <Application.Resources>
+        <x:String x:Key="ida:ClientID">e53f5734-de63-4022-9b42-b781f01ffaa2</x:String>
+    
+        <x:String x:Key="ida:AuthorizationUri">https://login.windows.net</x:String>
+    </Application.Resources>
+
+</Application>

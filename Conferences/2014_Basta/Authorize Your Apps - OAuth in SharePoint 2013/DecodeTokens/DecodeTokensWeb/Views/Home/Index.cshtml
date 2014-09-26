@@ -1,0 +1,23 @@
+﻿@using Microsoft.SharePoint.Client
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row" style="margin-top:20px;">
+	<div class="bs-callout bs-callout-info">
+		<h4>Context Token (Request Token)</h4>
+		<p style="word-wrap: break-word;">@ViewBag.ContextToken</p>
+	</div>
+	<div class="bs-callout bs-callout-info">
+		<h4>Decoded Context Token</h4>
+		<p style="word-wrap: break-word;">@Html.Raw(((string)ViewBag.DecodedContextToken).Replace(",", ",<br/>"))</p>
+	</div>
+	<div class="bs-callout bs-callout-info">
+		<h4>Access Token</h4>
+		<p style="word-wrap: break-word;">@ViewBag.AccessToken</p>
+	</div>
+	<div class="bs-callout bs-callout-info">
+		<h4>Decoded Access Token</h4>
+		<p style="word-wrap: break-word;">@Html.Raw(((string)ViewBag.DecodedAccessToken).Replace(",", ",<br/>"))</p>
+	</div>
+</div>

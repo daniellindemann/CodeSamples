@@ -1,0 +1,33 @@
+﻿@{
+	ViewBag.Title = "GetData";
+}
+
+<h2>GetData</h2>
+
+<div class="row">
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<div class="oAuthInputs">
+			<div>
+				Access Token:<br />
+				<textarea class="form-control" id="accessToken" name="accessToken">@ViewBag.AccessToken</textarea>
+			</div>
+			<div>
+				Query Url:<br />
+				<input type="text" class="form-control" id="queryText" name="queryText" value="/_api/web/lists/?$select=title" />
+			</div>
+			<div>
+				<input type="hidden" id="devWebUrl" name="devWebUrl" value="@ViewBag.DevWebUrl" />
+				<input type="hidden" id="refreshToken" name="refreshToken" value="@ViewBag.RefreshToken" />
+				<input type="submit" id="webCallButton" name="webCallButton" class="btn btn-primary" value="Get Data!" />
+			</div>
+		</div>
+	}
+</div>
+
+<div class="row">
+	<b>Result</b><br />
+	<div id="output">@ViewBag.ResultData</div>
+</div>
+

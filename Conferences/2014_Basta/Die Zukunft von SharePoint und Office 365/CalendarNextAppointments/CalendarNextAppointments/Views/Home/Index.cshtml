@@ -1,0 +1,27 @@
+﻿@using System.Globalization
+@model IEnumerable<Microsoft.Office365.Exchange.IEvent>
+
+@{
+	ViewBag.Title = "Home Page";
+}
+
+
+<div class="row" style="margin-top: 20px;">
+	<table class="table table-striped">
+		<tr>
+			<th>Betreff</th>
+			<th>Start</th>
+			<th>Ende</th>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Subject</td>
+				<td>@item.Start.Value.ToString("dd.MM.yyyy hh:mm")</td>
+				<td>@item.End.Value.ToString("dd.MM.yyyy hh:mm")</td>
+			</tr>
+		}
+	</table>
+	
+	@Html.ActionLink("Logout", "Logout", "Home")
+</div>

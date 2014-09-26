@@ -1,0 +1,15 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+
+<div class="row" style="margin-top:20px">
+	<blockquote> Login with demo@@dlindemann.de to show not authorized </blockquote>
+	<blockquote> Hello @ViewBag.UserName </blockquote>
+	@Html.ActionLink("Create a list", "CreateList", "Home")
+</div>
+
+<div class="row">
+	<div class="bg-success">@ViewBag.SuccessMessage</div>
+	<div class="bg-danger">@ViewBag.ExceptionMessage</div>
+</div>

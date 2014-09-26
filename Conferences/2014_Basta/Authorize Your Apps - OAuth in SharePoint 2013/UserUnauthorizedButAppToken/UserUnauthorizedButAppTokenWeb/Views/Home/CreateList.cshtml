@@ -1,0 +1,33 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+
+<div class="row" style="margin-top:20px">
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<blockquote> Hello @ViewBag.UserName </blockquote>
+		<div class="inputArea">
+			List Url<br />
+			<input type="text" class="form-control" id="listUrl" name="listUrl" value="/Lists/Test" />
+		</div>
+		<div class="inputArea">
+			List Name<br />
+			<input type="text" class="form-control" id="listName" name="listName" value="Test" />
+		</div>
+		<div class="inputArea">
+			List Description<br />
+			<textarea class="form-control" id="listDescription" name="listDescription">just a test list</textarea>
+		</div>
+		<div class="inputArea">
+			<input type="submit" class="btn btn-info" id="submitBtn" name="submitBtn" value="Create!" />
+		</div>
+	}
+</div>
+
+<div class="row">
+	<p class="bg-success">@ViewBag.SuccessMessage</p>
+	<p class="bg-danger">@ViewBag.ExceptionMessage</p>
+</div>
