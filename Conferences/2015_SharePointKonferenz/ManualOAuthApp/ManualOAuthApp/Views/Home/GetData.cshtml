@@ -1,0 +1,44 @@
+﻿@using ManualOAuthApp.Models
+@model AccessTokenData
+@{
+	ViewBag.Title = "GetData";
+	var outlookEndpoint = O365Config.OutlookEndPointUrl;
+}
+
+<h2>GetData</h2>
+
+<div class="row">
+	@using (Html.BeginForm())
+	  {
+		@Html.AntiForgeryToken()
+		<div class="oAuthInputs">
+			<div>
+				Token Type:<br/>
+				<input class="form-control" id="tokenType" name="tokenType" value="@Model.TokenType"/>
+			</div>
+			<div>
+				Scope:<br />
+				<textarea class="form-control" id="scope" name="scope">@Model.Scope</textarea>
+			</div>
+			<div>
+				Access Token:<br/>
+				<textarea class="form-control" id="accessToken" name="accessToken">@Model.AccessToken</textarea>
+			</div>
+			<div>
+				Query Url:<br/>
+				@outlookEndpoint<br />
+				<textarea type="text" class="form-control" id="queryText" name="queryText">/api/v1.0/me/events?$filter=contains(Subject,'SharePoint')</textarea>
+			</div>
+			<div>
+				<input type="hidden" id="endPointUrl" name="endPointUrl" value="@outlookEndpoint"/>
+				<input type="submit" id="webCallButton" name="webCallButton" class="btn btn-primary" value="Get Data!"/>
+				@Html.ActionLink("Go to Post Data!", "PostData")
+			</div>
+		</div>
+	}
+</div>
+
+<div class="row">
+	<b>Result</b><br/>
+	<div id="output">@ViewBag.ResultData</div>
+</div>

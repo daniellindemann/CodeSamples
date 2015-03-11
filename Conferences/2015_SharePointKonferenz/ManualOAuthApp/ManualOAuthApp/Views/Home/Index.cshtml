@@ -1,0 +1,70 @@
+﻿@using ManualOAuthApp.Models
+@{
+	ViewBag.Title = "Home Page";
+	var authorizeUrl = O365Config.AuthorizationEndPointUrl;
+}
+
+
+<div class="row">
+	<blockquote>
+		<p>Getting the EndPoints from the View Endpoint Dialog</p>
+		<a href="#" id="showSample">Show Sample</a>
+		<div id="sampleImages" style="display: none;">
+			<img src="/Content/img/azureAdApps.png"/>
+			<img src="/Content/img/azureAdEndPoints.png" />
+		</div>
+	</blockquote>
+	<div class="oAuthInputs">
+		<div>
+			Authorize Url<br />
+			<textarea id="manualAuthUrl" class="form-control">@authorizeUrl</textarea>
+		</div>
+		<div>
+			Redirect Url<br />
+			<textarea id="manualRedirectUrl" class="form-control">@Request.Url.GetLeftPart(UriPartial.Authority)/Home/RedirectAuthorization</textarea>
+		</div>
+		<div>
+			Grant Type:<br />
+			<select id="manualGrantType" class="form-control">
+				<option selected="selected" value="code">code</option>
+				<option disabled="disabled" value="authorization_code">authorization_code</option>
+				<option disabled="disabled" value="refresh_token">refresh_token</option>
+			</select>
+		</div>
+		<div>
+			Client ID<br />
+			<input type="text" id="manualClientId" class="form-control" />
+		</div>
+		<div>
+			<input type="button" id="authorizeButton" class=" btn btn-primary" value="Authorize!" />
+		</div>
+	</div>
+</div>
+
+@section scripts
+{
+	<script type="text/javascript">
+		$(function () {
+			$('#showSample').on('click', function (evnt) {
+				evnt.preventDefault();
+				$('#sampleImages').toggle();
+			});
+
+			$('#authorizeButton').on('click', function (evnt) {
+				evnt.preventDefault();
+
+				var authUrlText = $('#manualAuthUrl').val();
+				var redirectUrlText = $('#manualRedirectUrl').val();
+				var clientIdText = $('#manualClientId').val();
+				var grantTypeText = $('#manualGrantType').val();
+				var paramSeparator = authUrlText.indexOf('?') > -1 ? '&' : '?';
+
+				var url = authUrlText + paramSeparator + 'client_id=' + clientIdText +
+					'&response_type=' + grantTypeText +
+					'&redirect_uri=' + encodeURIComponent(redirectUrlText);
+
+				window.location = url;
+			});
+		});
+	</script>
+}

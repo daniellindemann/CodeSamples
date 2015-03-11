@@ -1,0 +1,50 @@
+﻿@using ManualOAuthApp.Models
+@{
+	ViewBag.Title = "RedirectSuccess";
+	//ViewBag.DevWebUrl = "https://dlindemann.sharepoint.com/sites/dev";
+	//ViewBag.RedirectUri = "https://localhost:44304/Home/RedirectSuccess";
+	var tokenUrl = O365Config.TokenEndPointUrl;
+}
+
+<h2>Redirect Success</h2>
+
+<div class="row">
+	<b>Error</b> @ViewBag.OAuthResultError<br />
+	<b>Error Descrtipion</b> @ViewBag.OAuthResultErrorDescription<br />
+	<b>Code</b> @ViewBag.OAuthResultCode
+</div>
+
+<div class="row">
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<div class="oAuthInputs">
+			<div>
+				Authorization code<br />
+				<textarea id="manualAuthCode" name="manualAuthCode" class="form-control">@ViewBag.OAuthResultCode</textarea>
+			</div>
+			<div>
+				Grant Type:<br />
+				<select id="manualGrantType" name="manualGrantType" class="form-control">
+					<option disabled="disabled" value="code">code</option>
+					<option selected="selected" value="authorization_code">authorization_code</option>
+					<option disabled="disabled" value="refresh_token">refresh_token</option>
+				</select>
+			</div>
+			<div>
+				Client ID<br />
+				<input type="text" id="manualClientId" name="manualClientId" class="form-control" />
+			</div>
+			<div>
+				Client Secret<br />
+				<input type="text" id="manualClientSecret" name="manualClientSecret" class="form-control" />
+			</div>
+			<div>
+				@*<input type="hidden" id="devWebUrl" name="devWebUrl" value="@ViewBag.DevWebUrl" />
+				<input type="hidden" id="redirectUri" name="redirectUri" value="@ViewBag.RedirectUri" />*@
+				<input type="submit" id="webCallButton" name="webCallButton" class=" btn btn-primary" value="Get Access Token!" />
+			</div>
+		</div>
+	}
+</div>
+
