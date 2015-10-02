@@ -1,0 +1,140 @@
+/* css */
+
+.favoritesContainer {
+	background-color: #8BC34A;
+	height: 100%;
+	float: left;
+	margin-right: 10px;
+	margin: 0 10px 0px 0px;
+	padding: 0;
+}
+
+.favoritesContainer.stateClosed {
+	width: 50px;
+}
+.favoritesContainer.stateClosed:hover {
+	cursor: pointer;
+}
+
+.favoritesContainer.stateOpened {
+	width: 255px;
+}
+
+.favoritesContainer > .favBoxHeader {
+    background-color: #8BC34A;
+    border-bottom: 1px solid #689F38;
+    height: 50px;
+    text-align: center;
+}
+
+
+.favoritesContainer .favAdd {
+	display: none;
+}
+.favoritesContainer.stateOpened .favAdd {
+	display: inline-block;
+	text-decoration: none;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    /*width: 50px;*/
+    /*padding: 0 7px;*/
+    width: 100%;
+    cursor: pointer;
+}
+
+.favoritesContainer > .favBoxHeader > .favLink {
+	display: inline-block;
+	text-decoration: none;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    /*width: 50px;*/
+    /*padding: 0 7px;*/
+    width: 100%;
+}
+
+.favoritesContainer > .favBoxHeader > span,
+.favoritesContainer > .favBoxHeader > .favLink {
+    color: #212121;
+}
+
+.favoritesContainer > .favBoxHeader > .favLink:hover {
+    cursor: pointer;
+}
+
+.favoritesContainer.stateClosed > .favBoxHeader > span.favIcon,
+.favoritesContainer.stateClosed > .favBoxHeader > span.favText {
+    display: none;
+}
+
+.favoritesContainer > .favBoxBody {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.favoritesContainer.stateClosed > .favBoxBody {
+    display: none;
+}
+
+.favoritesContainer.stateClosed > .favLabel.favVertical {
+    display: block;
+    white-space: normal;
+    /*width: 50px;*/
+    padding: 18px;
+    word-break: break-all;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    /* opacity: 0.5; */
+}
+
+.favoritesContainer.stateOpened > .favLabel.favVertical {
+    display: none;
+}
+
+.favoritesContainer .favList {
+	padding: 0;
+}
+
+.favoritesContainer .favListItem {
+    border-bottom: 1px solid #689F38;
+    border-top: 1px solid #689F38;
+    position: relative;
+    list-style-type: none;
+}
+
+.favoritesContainer .favListItem > .favLink {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.favoritesContainer .favListItem > .favLink:active,
+.favoritesContainer .favListItem > .favLink:hover,
+.favoritesContainer .favListItem > .favLink:focus {
+    text-decoration: none;
+}
+
+.favoritesContainer .favListItem > .favRemove {
+	cursor: pointer;
+}
+
+.favoritesContainer .favListItem > .favLink.favPullRight > .favIcon {
+    font-size: 16px;
+}
+
+.favoritesContainer .favListItem > .favLink {
+    color: #4C2505;
+    padding: 7px 42px 7px 21px;
+    display: block;
+}
+
+.favoritesContainer .favListItem:hover > .favLink {
+    text-decoration: none;
+    background-color: #689F38;
+}
+
+.favoritesContainer .favListItem > .favLink:hover {
+    cursor: pointer;
+}
