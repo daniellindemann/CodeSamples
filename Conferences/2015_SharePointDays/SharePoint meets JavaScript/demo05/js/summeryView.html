@@ -1,0 +1,33 @@
+<div class="form">
+	<h3>Summery</h3>
+	<div class="form-group">
+		<div>
+			<label>First name</label><br/>
+			<span>{{$root.firstName}}</span>
+		</div>
+		<div>
+			<label>Last name</label><br/>
+			<span>{{$root.lastName}}</span>
+		</div>
+		<div>
+			<label>Twitter</label><br/>
+			<span>{{$root.twitter}}</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<div>
+			<label>What's your favorite programming language?</label><br/>
+			<ul>
+				<li ng-repeat="l in getSelectedLanguage()">{{l}}</li>
+			</ul>
+		</div>
+		<div>
+			<label>Is the something else?</label><br/>
+			<span>{{$root.else}}</span>
+		</div>
+	</div>
+	<div class="wizardButtons">
+		<a class="btn btn-default" href="#2" role="button">Prev</a>
+		<a class="btn btn-success" role="button" ng-click="save()">Save</a>
+	</div>
+</div>
