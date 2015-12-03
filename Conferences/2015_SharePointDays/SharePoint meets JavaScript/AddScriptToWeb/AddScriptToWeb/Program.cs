@@ -11,7 +11,7 @@ namespace AddScriptToWeb
 		private static void Main(string[] args)
 		{
 			Console.Write("Enter web url: ");
-			var webUrl = ConsoleHelper.ConsoleReadLineWithDefault("https://abc.sharepoint.com/sites/publishing/demo0x");
+			var webUrl = ConsoleHelper.ConsoleReadLineWithDefault("https://dlindemann.sharepoint.com/sites/publishing/spdays0x");
 
 			var ctx = new ClientContext(webUrl);
 

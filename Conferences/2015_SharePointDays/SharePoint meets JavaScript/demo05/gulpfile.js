@@ -1,6 +1,6 @@
 // gulp needs to be installed as a global dependency
 // npm install -g gulp
-// npm onstall --save-dev gulp
+// npm install --save-dev gulp
 var gulp = require('gulp');
 
 // install npm module gulp-uglify
@@ -17,7 +17,7 @@ var replace = require('gulp-replace');
 
 // install npm module gulp-spsync
 // npm install --save-dev wictorwilen/gulp-spsync
-var sp = require('gulp-spsync')
+var sp = require('gulp-spsync');
 
 // tasks to minify js files
 gulp.task('compress', function() {
@@ -30,12 +30,40 @@ gulp.task('compress', function() {
 		.pipe(gulp.dest('build/js'));
 });
 
-gulp.task('deployToSP', ['compress'], function() {
-	var spFolder = 'publishing/spdays05/Style Library/demo05/js';
-	
-	// copy files to sharepoint folder
+/*
+
+configuration
+-------------
+
+1. goto [your site]/_layouts/15/appregnew.aspx
+	save client id and client secret
+2. goto [your site]/_layouts/15/appinv.aspx
+	insert client id
+	insert rights
+	<AppPermissionRequests AllowAppOnlyPolicy="true">
+		<AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="FullControl"/>
+	</AppPermissionRequests>
+3. execute
+
+(see https://github.com/wictorwilen/gulp-spsync/blob/master/README.md)
+
+*/
+gulp.task('makeSPFiles', ['compress'], function() {
+	var spFolder = 'build/sp/Style Library/spdays05/js';
 	return gulp.src(['build/js/**/*.js', 'js/**/*.html'])
-		.pipe(gulp.dest(spFolder))
+		.pipe(gulp.dest(spFolder));
 });
 
-gulp.task('default', ['compress']);
+gulp.task('deployToSP', ['makeSPFiles'], function() {
+	// copy files to sharepoint folder
+	return gulp.src('build/sp/**/*.*')
+		.pipe(sp({
+			'client_id':'39232ca1-f6c1-477e-95fa-29b0d5756a2f',
+			'client_secret':'9+d4/QJzU6L32pKMZ+tVSBBngEAnDXxeAb335+kHloQ=',
+			'realm':'',
+			'site':'https://dlindemann.sharepoint.com/sites/publishing',
+			'verbose':'true'
+		}));
+});
+
+gulp.task('default', ['deployToSP']);

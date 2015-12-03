@@ -5,15 +5,15 @@ angular
 	    $routeProvider
 			.when('/1', {
 			    controller: 'SampleWizardCtrl',
-			    templateUrl: Basta.Url.serverRelativeSiteUrl + '/Style Library/spdays03/js/nameView.html'
+			    templateUrl: SPDays.Url.serverRelativeSiteUrl + '/Style Library/spdays03/js/nameView.html'
 			})
 			.when('/2', {
 			    controller: 'SampleWizardCtrl',
-			    templateUrl: Basta.Url.serverRelativeSiteUrl + '/Style Library/spdays03/js/questionsView.html'
+			    templateUrl: SPDays.Url.serverRelativeSiteUrl + '/Style Library/spdays03/js/questionsView.html'
 			})
 			.when('/3', {
 			    controller: 'SampleWizardCtrl',
-			    templateUrl: Basta.Url.serverRelativeSiteUrl + '/Style Library/spdays03/js/summeryView.html'
+			    templateUrl: SPDays.Url.serverRelativeSiteUrl + '/Style Library/spdays03/js/summeryView.html'
 			})
 			.otherwise({
 			    redirectTo: '/1'
@@ -38,7 +38,7 @@ angular
 	        var itemType = 'SP.Data.SurveyListItem'
 
 	        // api items url
-	        var listUrl = Basta.Url.serverRelativeWebUrl + '/_api/web/lists(guid\'' + listId + '\')/Items';
+	        var listUrl = SPDays.Url.serverRelativeWebUrl + '/_api/web/lists(guid\'' + listId + '\')/Items';
 
 	        // new item json
 	        var newItemJson = {

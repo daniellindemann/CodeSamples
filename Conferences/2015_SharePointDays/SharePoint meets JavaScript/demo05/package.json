@@ -1,0 +1,12 @@
+{
+	"name": "demo05",
+	"version": "0.0.1",
+	"description": "Beispielanwendung für das Deployment von SharePoint JavasScript-Dateien. Die Bereitstellung wird mittels Gulp und Node durchgeführt.",
+	"devDependencies": {
+		"gulp": "^3.9.0",
+		"gulp-rename": "^1.2.2",
+		"gulp-replace": "^0.5.4",
+		"gulp-spsync": "wictorwilen/gulp-spsync",
+		"gulp-uglify": "^1.5.1"
+	}
+}

@@ -23,7 +23,7 @@ SPDays.Url = SPDays.Url || {};
 		RegisterSod('angular.js', SPDays.CDN.angular);
 		RegisterSod('angular-route.js', SPDays.CDN.angularRoute);
 		RegisterSodDep('angular-route.js', 'angular.js');
-		RegisterSod('app.js', SPDays.Url.serverRelativeSiteUrl + '/Style Library/spdays03/js/app.debug.js');
+		RegisterSod('app.js', SPDays.Url.serverRelativeSiteUrl + '/Style Library/spdays05/js/app.debug.js');
 		RegisterSodDep('app.js', 'jquery.js');
 		RegisterSodDep('app.js', 'angular.js');
 		RegisterSodDep('app.js', 'angular-route.js');
